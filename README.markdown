@@ -77,7 +77,7 @@ Noting that we have to pass two additional parameters to liquid-column when we m
 
 The liquid-column mixin covered here is the most useful mixin, but semi-liquid-grid also includes additional mixins equivalent to those in the standard compass blueprint package (append, prepend, border etc.). Check out the source code to see how these work.
 
-Aknowledgements
+Acknowledgements
 ================
 * heavily based upon the original liquid blueprint (docs: http://compass-style.org/reference/blueprint/liquid/)
 * the one and only [compass](https://github.com/chriseppstein/compass)
