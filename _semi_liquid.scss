@@ -1,0 +1,114 @@
+// If you find this useful please show your gratitude by signing up
+// to peepall.com. It's a startup I'm working on and the reason I
+// created this mixin. When the peepall's revolution comes you'll be
+// first in line to receive lucrative coding job offers!
+//
+// Cheers, Jon Chambers
+
+@import "blueprint/grid";
+
+// Overide this if you want
+
+$blueprint_liquid_container_width: 80% !default;
+
+// These temp variables are declared here so we have global access
+
+$temp_parent_width: 1;
+$temp_width: 1;
+$temp_margin: 1;
+$temp_push_pull: 1;
+
+// Debug
+@mixin show-liquid-grid($n) {
+  background-image: url("../images/liquid_grid/grid_#{$n}.png");
+  background-size: 100%; }
+
+@mixin calculate-temp-values($n_parent) {
+
+  $temp_parent_width: $blueprint_grid_outer_width * $n_parent - $blueprint_grid_margin;
+  $temp_width: 100% * $blueprint_grid_width / $temp_parent_width;
+  $temp_margin: 100% * $blueprint_grid_margin / $temp_parent_width;
+  $temp_push_pull: -($temp_width + $temp_margin); }
+
+@mixin liquid-container {
+  min-width: $blueprint-container-size;
+  width: $blueprint_liquid_container_width;
+  margin: 0 auto;
+  @include clearfix; }
+
+@mixin liquid-span($n, $override: false) {
+  $width: $temp_width * $n + $temp_margin * ($n - 1);
+  @if $override {
+    width: $width !important; }
+  @else {
+    width: $width; } }
+  
+@mixin liquid-column(
+  $n, 
+  $n_parent,
+  $last: false,
+  $n_adjacent_fixed: 0,
+  $fixed_side: left) {
+  
+  @include calculate-temp-values($n_parent);
+  
+  // meaningful variable names
+  $has_no_adjacent_fixed: not($n_adjacent_fixed > 0);
+  $has_fixed_to_left: ($n_adjacent_fixed > 0) and ($fixed_side == left);
+  $has_fixed_to_right: ($n_adjacent_fixed > 0) and ($fixed_side == right);
+  
+  @if $last {
+    @include last; }
+  @elseif not($has_fixed_to_right) {
+    margin-right: $temp_margin; }
+  
+  @if $has_no_adjacent_fixed {
+    @include float-left;
+    @include liquid-span($n); }
+    
+  @if $has_no_adjacent_fixed or $has_fixed_to_left {
+    overflow: hidden; }  
+  @elseif $has_fixed_to_right {
+    padding-right: $blueprint_grid_outer_width * $n_adjacent_fixed; } }
+ 
+// a re-definition of the mixin in _grid.scss
+@mixin column($n, $last: false, $has_liquid_neighbor_to_left: false) {
+  @include column-base($last);
+  @include span($n); 
+  @if $has_liquid_neighbor_to_left {
+    margin-left: $blueprint_grid_margin; } } 
+
+@mixin liquid-append($n, $n_parent) {
+  @include calculate-temp-values($n_parent);
+  padding-right: ($temp_width + $temp_margin) * $n; }
+
+@mixin liquid-prepend($n, $n_parent) {
+  @include calculate-temp-values($n_parent);
+  padding-left: ($temp_width + $temp_margin) * $n; }
+  
+@mixin liquid-pull($n, $n_parent, $last: false) {
+  @include calculate-temp-values($n_parent);
+  margin-left: $temp_push_pull * $n; }
+    
+@mixin liquid-push($n, $n_parent) {
+  @include calculate-temp-values($n_parent);
+  @include float-right;
+  margin: {
+    top: 0;
+    left: $temp_margin;
+    right: $temp_push_pull * $n;
+    bottom: 0; }; }
+
+@mixin liquid-border($n_parent, $border_color: #eeeeee, $border_width: 1px) {
+  @include calculate-temp-values($n_parent);
+  $border_percent: 100% * ($border_width / $temp_parent_width);
+  padding-right: $temp_margin / 2 - $border_percent;
+  margin-right: $temp_margin / 2;
+  border-right: #{$border_percent} solid #{$border_color}; }
+   
+@mixin liquid-colborder($n_parent, $border_color: #eeeeee, $border_width: 1px) {
+  @include calculate-temp-values($n_parent);
+  $border_percent: 100% * ($border_width / $temp_parent_width);
+  padding-right: (($temp_width + 2 * $temp_margin - $border_percent) / 2);
+  margin-right: (($temp_width + 2 * $temp_margin - $border_percent) / 2);
+  border-right: #{$border_width} solid #{$border_color}; }

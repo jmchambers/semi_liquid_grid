@@ -1,0 +1,106 @@
+!!!
+%html
+  %head
+    %title semi-liquid demo
+    %link{:href => 'stylesheets/screen.css', :media => 'screen, projection', :rel => "stylesheet", :type => "text/css"}
+    %link{:href => 'stylesheets/print.css', :media => 'print', :rel => "stylesheet", :type => "text/css"}
+    /[if lt IE 8]
+      %link{:href => 'stylesheets/ie.css', :media => 'screen, projection', :rel => "stylesheet", :type => "text/css"}
+  %body.three-col
+    #container
+      #header
+        #spacer I'm a spacer that could contain a logo
+        #toolbar
+          I'm a toolbar that lines up with the main content
+      %hr.colspacer
+      #sidebar
+        %hr.colspacer      
+        %ul
+          %li
+            %div.icon-container
+              %img.list-icon{:src => "http://@sass-lang.com/images/sass_icon.ico"}
+            %p.item-description menu item 1
+          %li
+            %div.icon-container
+              %img.list-icon{:src => "http://@sass-lang.com/images/sass_icon.ico"}
+            %p.item-description menu item 2
+          %li
+            %div.icon-container
+              %img.list-icon{:src => "http://@sass-lang.com/images/sass_icon.ico"}
+            %p.item-description menu item 3
+      #content
+        #content-header
+          %h1#main-heading Introducing semi-liquid layouts with compass
+          %h2#sub-heading by Jon Chambers
+          #introduction Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. 
+          %hr.colspacer
+        #fixed-content
+          %div.info-box
+            %h2 The compass framework
+            The compass framework... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+            Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. 
+          %hr.colspacer
+          %div.info-box
+            %h2 The semi-liquid mixin
+            The semi-liquid mixin... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+            Curabitur sodales ligula in libero. Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. 
+            Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. 
+            Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. 
+            Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam. Aenean laoreet. Vestibulum nisi lectus, commodo ac, facilisis ac, ultricies eu, pede. Ut orci risus, accumsan porttitor, cursus quis, aliquet eget, justo. 
+        #liquid-content
+          %h3 What people are saying about this article around the interwebs...
+          %hr.colruler
+          #conversation
+            / @haml => @sass           
+            %div.comment.left-speaker
+              %div.avatar-container
+                %img.speaker-avatar{:src => "http://@haml-lang.com/images/haml.gif"}
+                %h3 @haml
+              %div.body
+                %p Hey @sass, I love what you've done with my document. The mixture of fixed and flexible elements is a great way to get the most out of screen real-estate. It must've been a nightmare to code though!
+            / @haml <= @sass    
+            %hr.colruler
+            %div.comment.right-speaker
+              %div.body
+                %p Hi @haml, it was actually a snap to code! @compass did all the hard work, I just told him how many columns each element should be and whether or not it should be stretchy. It was fun working with him and it was fun working with you too @haml. You get to the point unlike someone else I could mention...
+              %div.avatar-container
+                %img.speaker-avatar{:src => "http://@sass-lang.com/images/sass.gif"}
+                %h3 @sass
+            %hr.colruler
+            / @haml => @sass       
+            %div.comment.left-speaker
+              %div.avatar-container
+                %img.speaker-avatar{:src => "http://@haml-lang.com/images/haml.gif"}
+                %h3 @haml
+              %div.body
+                %p You mean @html? Lol, yeah that old guy takes forever to say the simplest of things
+            %hr.colruler
+            / > @haml <= @html    
+            %div.comment.right-speaker
+              %div.body
+                %p &lt;p&gt; You &lt;em&gt;<em>cheeky</em>&lt;/em&gt; young whippersnapper! I was doing science with &lt;strong&gt;<strong>Tim Burners Lee</strong>&lt;/strong&gt; at &lt;strong&gt;<strong>CERN</strong>&lt;/strong&gt; before you were even a twinkle in your daddy's eye! &lt;/p&gt;
+              %div.avatar-container
+                %img.speaker-avatar{:src => "http://upload.wikimedia.org/wikipedia/commons/thumb/8/84/HTML.svg/220px-HTML.svg.png"}
+                %h3 @html
+            %hr.colruler
+            / @haml <= @sass    
+            %div.comment.right-speaker
+              %div.body
+                %p I think you hurt his feelings! To be honest hun, he's no worse than @css, she just repeats herself endlessly! It's no wonder people don't like working with her. I prefer to get straight to the point. I think that's why guys love working with me.
+              %div.avatar-container
+                %img.speaker-avatar{:src => "http://@sass-lang.com/images/sass.gif"}
+                %h3 @sass
+            %hr.colruler
+            / > @css => @sass       
+            %div.comment.left-speaker
+              %div.avatar-container
+                %img.speaker-avatar{:src => "http://upload.wikimedia.org/wikipedia/commons/thumb/8/86/CSS.svg/160px-CSS.svg.png"}
+                %h3 @css
+              %div.body
+                %p #you .hussy {}
+                %p #you .complete .hussy {}
+                %p #you .complete .and .utter .hussy {}
+            %hr.colruler
+      %hr.colspacer      
+      #footer
+        I'm a footer

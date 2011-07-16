@@ -1,0 +1,79 @@
+body.three-col {
+  background-color: #222;
+  #container {
+    @include liquid-container;
+    max-width: 1200px;
+    $back-color: #fff;
+    background-color: $back-color;
+    border-left: 40px solid $back-color;
+    border-right: 40px solid $back-color;
+    hr {
+      &.colspacer {
+        @include colspacer;}
+      &.colruler {
+        @include colruler; } }
+    #header {
+      @include liquid-column(24,24,true);
+      //background-color: #888;
+      height: 3 * 12px;
+      #spacer {
+        @include column(5);
+        @include showgrid;
+        height: 100%;}
+      #toolbar {
+        height: 100%;
+        @include liquid-column(19,24,true,5,left);
+        @include show-liquid-grid(19); }}
+    #sidebar {
+      @include column(4);
+      @include showgrid;
+      background-color: #bbb;
+      ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+        li {
+          .icon-container {
+            @include column(1);
+            .list-icon {
+              padding-left: 20px;}}
+          .item-description {
+            @include column(3, true); } } } }
+    #content {
+      @include prepend(1);
+      @include liquid-column(19,24,true,5,left);
+      #content-header {
+        @include show-liquid-grid(19); }
+      #fixed-content {
+        @include append(1);  
+        @include column(12,false);
+        @include showgrid; } 
+      #liquid-content {
+        @include liquid-column(6,19,true,13,left);
+        #conversation {
+          @include liquid-column(6,6,true);
+          .comment {
+            @include liquid-column(6,6,true);
+            .avatar-container {
+              @include showgrid;
+              .speaker-avatar {
+                height: 3 * $blueprint-baseline;} }
+            .body p {
+              @include show-liquid-grid(4);
+              @include liquid-column(4,4,true); }
+            &.left-speaker {
+              .body {
+                 @include liquid-column(4,6,true,2,left); }
+              .avatar-container {
+                @include column(2); } }
+            &.right-speaker {
+              .body {
+                @include liquid-column(4,6,false,2,right); }
+              .avatar-container {
+                @include column(2,true,true); } } } } } }
+    #footer {
+      @include liquid-column(24,24,true);
+      @include show-liquid-grid(24);
+      background-color: #888;
+      height: 3 * 12px;
+      text-align:center; } } }
