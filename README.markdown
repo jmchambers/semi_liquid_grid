@@ -86,3 +86,5 @@ Aknowledgements
 Future
 ================
 when I get a chance I'll try and bundle this as a proper compass extension and include the tool I use to generate the pngs in the test grid
+
+Copyright (c) 2011 [Peepall Ltd](http://peepall.com), released under the MIT license
