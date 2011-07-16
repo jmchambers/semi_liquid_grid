@@ -12,13 +12,13 @@ You'll need a good working knowledge of [compass](https://github.com/chriseppste
 Usage
 =======
 
-Take a look at [example 1](semi_liquid_grid/examples/example_1) to see how you can add some semi-liquid goodness to your project (hint: take a look at index.html in a browser to get an idea what semi_liquid_grid actually does).
+Take a look at [example 1](semi_liquid_grid/tree/master/examples/example_1) to see how you can add some semi-liquid goodness to your project (hint: take a look at index.html in a browser to get an idea what semi_liquid_grid actually does).
 
 Basically, you drop _semi_liquid.scss into your partials folder and then import it into your screen.scss file with:
 
     @import 'partials/semi_liquid';
 
-You'll then be able to call a number of mixins that generate the semi-liquid css for you. See [_three_col.scss](semi_liquid_grid/examples/example_1/src/partials/_three_col.scss) to see how these are used in example 1. Usage is very similar to the blueprint or liquid-blueprint mixins that ship with compass.
+You'll then be able to call a number of mixins that generate the semi-liquid css for you. See [_three_col.scss](semi_liquid_grid/tree/master/examples/example_1/src/partials/_three_col.scss) to see how these are used in example 1. Usage is very similar to the blueprint or liquid-blueprint mixins that ship with compass.
 
 To create a white, full-width container we would use:
 
@@ -27,7 +27,7 @@ To create a white, full-width container we would use:
       background-color: white;
     }
 
-This creates a container based on default blueprint settings which, as in example 1, you can override (see [_base.scss](semi_liquid_grid/examples/example_1/src/partials/_base.scss)). For example 1 we use:
+This creates a container based on default blueprint settings which, as in example 1, you can override (see [_base.scss](semi_liquid_grid/tree/master/examples/example_1/src/partials/_base.scss)). For example 1 we use:
 
     $blueprint-grid-columns: 24;
     $blueprint-container-size: 950px;
